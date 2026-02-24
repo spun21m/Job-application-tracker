@@ -1,6 +1,6 @@
 package com.job_tracker.entity;
 
-public enum Status {
+public enum JobApplicationStatus {
     APPLIED,
     INTERVIEW,
     REJECTED,

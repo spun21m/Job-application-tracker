@@ -17,7 +17,7 @@ public class JobApplicationTracker {
     private String companyName;
     private String jobLink;
     private LocalDate applicationDate;
-    private Status status;
+    private JobApplicationStatus status;
 
 
     public Long getId(){return id;}
@@ -34,11 +34,11 @@ public class JobApplicationTracker {
         this.jobTitle = jobTitle;
     }
 
-    public Status getStatus() {
+    public JobApplicationStatus getStatus() {
         return status;
     }
 
-    public void setStatus(Status status) {
+    public void setStatus(JobApplicationStatus status) {
         this.status = status;
     }
 
