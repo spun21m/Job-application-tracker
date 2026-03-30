@@ -1,19 +1,192 @@
-**Job Application management system**
+**Job Application Tracker**
 
-An app for job seekers that allows them to tack applications and monitor interview status throughout the job search process.
+**📌 Overview**
 
-*Three user stories:*
+**The Job Application Tracker is a simple backend application built with Spring Boot that helps users manage and track their job applications.**
 
-As a user, I can add the job I applied to with basic details such as position, company name, job link, application date so that I can keep track of where and when I applied.
+**It allows users to create, view, update, and delete job applications along with tracking their current status (e.g., Applied, Interview, Rejected).**
 
-As a user, I can update the status of job application (applied, interview, rejected, offer) so that I can track my progress in the hiring process.
+**\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_**
 
-As a user, I can view, edit, and delete my job applications so that my list stays accurate and up to date.
+**🚀 Tech Stack**
 
-*One entity:*
+**•	Java**
 
- JobApplication
+**•	Spring Boot**
 
-Id, jobTitle, companyName, jobLink, applicationDate, status( APPLIED, INTERVIEW, REJECTED, OFFER)
+**•	Spring Data JPA**
 
- 
+**•	H2 / MySQL**
+
+**•	Maven**
+
+**\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_**
+
+**✨ Features**
+
+**•	Add a new job application**
+
+**•	View all job applications**
+
+**•	View a job application by ID**
+
+**•	Update job application details and status**
+
+**•	Delete a job application**
+
+**•	Track application status using enums**
+
+**\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_**
+
+**📡 API Endpoints**
+
+**1. Create Job Application**
+
+**POST /api/job-applications**
+
+**Request Body:**
+
+**{**
+
+&#x20; **"jobTitle": "Software Engineer Intern",**
+
+&#x20; **"companyName": "Google",**
+
+&#x20; **"jobLink": "https://careers.google.com",**
+
+&#x20; **"applicationDate": "2026-03-30",**
+
+&#x20; **"status": "APPLIED"**
+
+**}**
+
+**Response:**
+
+**•	201 CREATED**
+
+&#x20;
+
+**\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_**
+
+**2. Get All Job Applications**
+
+**GET /api/job-applications**
+
+**Response:**
+
+**•	200 OK**
+
+&#x20;
+
+**\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_**
+
+**3. Get Job Application by ID**
+
+**GET /api/job-applications/{id}**
+
+**Response:**
+
+**•	200 OK**
+
+**•	404 NOT FOUND (if ID does not exist)**
+
+&#x20;
+
+**\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_**
+
+**4. Update Job Application**
+
+**PUT /api/job-applications/{id}**
+
+**Example (Update status to INTERVIEW):**
+
+**{**
+
+&#x20; **"jobTitle": "Software Engineer Intern",**
+
+&#x20; **"companyName": "Google",**
+
+&#x20; **"jobLink": "https://careers.google.com",**
+
+&#x20; **"applicationDate": "2026-03-30",**
+
+&#x20; **"status": "INTERVIEW"**
+
+**}**
+
+**Response:**
+
+**•	200 OK**
+
+&#x20;
+
+**\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_**
+
+**5. Delete Job Application**
+
+**DELETE /api/job-applications/{id}**
+
+**Response:**
+
+**•	204 NO CONTENT**
+
+&#x20;
+
+**\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_**
+
+**🧪 Testing**
+
+**All endpoints were tested using Postman.**
+
+**Tested flows:**
+
+**•	Create → Get → Update → Delete**
+
+**•	Error handling for invalid IDs**
+
+**\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_**
+
+**⚙️ How to Run**
+
+**1.	Clone the repository:**
+
+**git clone https://github.com/spun21m/Job-application-tracker.git**
+
+**2.	Navigate to the project:**
+
+**cd job-application-tracker**
+
+**3.	Run the application:**
+
+**mvn spring-boot:run**
+
+**4.	Access API at:**
+
+**http://localhost:8080/api/job-applications**
+
+**\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_**
+
+**🧠 Future Improvements**
+
+**•	Add search/filter (by status, company)**
+
+**•	Add frontend (React)**
+
+**•	Add authentication (user accounts)**
+
+**•	Deploy to cloud (AWS / Render / Railway)**
+
+**\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_**
+
+**👨‍💻 Author**
+
+**Sital Pun**
+
+**\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_**
+
+
+
+
+
+
+

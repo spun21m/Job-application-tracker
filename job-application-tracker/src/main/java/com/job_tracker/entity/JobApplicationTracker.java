@@ -1,9 +1,6 @@
 package com.job_tracker.entity;
 
-import jakarta.persistence.Entity;
-import jakarta.persistence.GeneratedValue;
-import jakarta.persistence.GenerationType;
-import jakarta.persistence.Id;
+import jakarta.persistence.*;
 
 import java.time.LocalDate;
 
@@ -17,6 +14,8 @@ public class JobApplicationTracker {
     private String companyName;
     private String jobLink;
     private LocalDate applicationDate;
+
+    @Enumerated(EnumType.STRING)
     private JobApplicationStatus status;
 
 
