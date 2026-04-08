@@ -4,8 +4,7 @@ const API_BASE_URL = "http://localhost:8080/api/job-applications";
 
 export const getAllApplications = () => {
     
-    // return axios.get(`${API_BASE_URL}/applications`)
-    return axios.get(`${API_BASE_URL}`);
+    return axios.get(`${API_BASE_URL}`)
     
 }
 

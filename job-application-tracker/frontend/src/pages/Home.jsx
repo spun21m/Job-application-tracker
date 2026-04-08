@@ -15,7 +15,7 @@ export default function Home() {
 
     const response = await getAllApplications();
     console.log("API response:", response.data);
-    setApplications(response.data); 
+    setApplications(response.data);
     setLoading(false);
   }
 
@@ -28,7 +28,16 @@ export default function Home() {
     <div>
       <h1>Welcome to the Job Application Tracker!</h1>
       <p>Track your job applications and interviews in one place.</p>
-      
+      <ul>
+        {applications.map((app) => (
+          <li key={app.id}>
+            <span>
+              {app.jobTitle} at {app.companyName}
+            </span>
+            <span> {app.status}</span>
+          </li>
+        ))}
+      </ul>
     </div>
   );
 }
