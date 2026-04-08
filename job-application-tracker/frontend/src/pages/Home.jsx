@@ -1,4 +1,5 @@
 import { useState, useEffect } from "react";
+import JobCard from "../components/JobCard.jsx";
 import { getAllApplications } from "../services/api.js";
 
 export default function Home() {
@@ -28,16 +29,10 @@ export default function Home() {
     <div>
       <h1>Welcome to the Job Application Tracker!</h1>
       <p>Track your job applications and interviews in one place.</p>
-      <ul>
-        {applications.map((app) => (
-          <li key={app.id}>
-            <span>
-              {app.jobTitle} at {app.companyName}
-            </span>
-            <span> {app.status}</span>
-          </li>
-        ))}
-      </ul>
+
+      {applications.map((app) => (
+        <JobCard application={app} key={app.id}/>
+      ))}
     </div>
   );
 }
