@@ -21,6 +21,7 @@ export default function AddApplication() {
 
   const handleSubmit = async (e) => {
     e.preventDefault();   
+      console.log("Submitting formData:", formData);
     try {
       const response = await addApplication(formData);
       console.log("Application added successfully:", response.data);
@@ -33,7 +34,7 @@ export default function AddApplication() {
       });
     } catch (error) {
       console.error("Error adding application:", error);
-
+      console.log("Backend response:", error.response?.data);
     }
   }
 
@@ -60,18 +61,18 @@ export default function AddApplication() {
 
         <input type="date" name="applicationDate" value={formData.applicationDate} onChange={handleInputChange}  id="date" />
         <hr />
-        <label htmlFor="notes">Details:</label>
+        {/* <label htmlFor="notes">Details:</label>
         <textarea name="details" value={formData.details} onChange={handleInputChange} id="details" rows="4" cols="50"></textarea>
         <hr />
         <label htmlFor="notes">Notes:</label>
         <textarea name="notes" value={formData.notes} onChange={handleInputChange} id="notes" rows="2" cols="50"></textarea>
-        <hr />
+        <hr /> */}
 
         <label htmlFor="status">Status:</label>
         <select name="status" value={formData.status} onChange={handleInputChange} id="status">
           <option value="">Select Status</option>
           <option value="APPLIED">APPLIED</option>
-          <option value="INTERVIEWED">INTERVIEWED</option>
+          <option value="INTERVIEW">INTERVIEW</option>
           <option value="OFFERED">OFFERED</option>
           <option value="REJECTED">REJECTED</option>
         </select>
