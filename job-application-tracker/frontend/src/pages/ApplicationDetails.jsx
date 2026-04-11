@@ -69,7 +69,10 @@ export default function ApplicationDetails() {
       <p>Company: {application?.companyName}</p>
       <p>Application Date: {application?.applicationDate}</p>
       <p>Status: {application?.status}</p>
-      <button>Edit</button>
+      <Link to={`/edit/${id}`}>
+        <button>Edit</button>
+      </Link>
+     
       <button onClick={() => setShowDeleteModal(true)}>Delete</button>
       {
         showDeleteModal && (
