@@ -51,6 +51,7 @@ public class JobApplicationTrackerServiceImpl implements JobApplicationTrackerSe
         existingApplication.setCompanyName(jobApplicationTracker.getCompanyName());
         existingApplication.setJobTitle(jobApplicationTracker.getJobTitle());
         existingApplication.setCompanyLink(jobApplicationTracker.getCompanyLink());
+        existingApplication.setJobPostingLink(jobApplicationTracker.getJobPostingLink());
         existingApplication.setApplicationDate(jobApplicationTracker.getApplicationDate());
         existingApplication.setInterviewLink(jobApplicationTracker.getInterviewLink());
         existingApplication.setRecruiterEmail(jobApplicationTracker.getRecruiterEmail());

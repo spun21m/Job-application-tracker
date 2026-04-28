@@ -1,10 +1,13 @@
+import { Link } from "react-router-dom";
 
 export default function JobCard({ application }) {
   return (
     
     <div className="job-row">
+      <Link to={`/application/${application.id}`}>
       <span>{application.jobTitle}</span>
-      <span>{application.companyName && <a href={application.companyLink} target="_blank" rel="noopener noreferrer">{application.companyName}</a>}</span>
+      </Link>
+      <span>{application.companyLink ?( <a href={application.companyLink} target="_blank" rel="noopener noreferrer">{application.companyName}</a>):(application.companyName)}</span>
       <span>{application.status}</span>
       <span>{application.applicationDate}</span>
         <span>{application.salary ? `$${application.salary}` : "N/A"}</span>

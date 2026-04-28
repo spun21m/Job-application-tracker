@@ -57,10 +57,15 @@ export default function EditApplication(){
         jobTitle: "",
         companyName: "",  
         companyLink: "",
+        jobPostingLink: "",
+        interviewLink: "",
+        recruiterEmail: "",
+        salary: "",
+        notes: "",
         applicationDate: "",  
         status: ""
       });
-      navigate(`/application/${id}`);
+      navigate("/");
     } catch (error) {
       console.error("Error updating application:", error);
       console.log("Backend response:", error.response?.data);
@@ -187,11 +192,11 @@ export default function EditApplication(){
             />
           </div>
           <div className="form-group">
-            <label htmlFor="jobDescription">Job Description</label>
+            <label htmlFor="job-description">Job Description</label>
             <textarea
               type="text"
               name="jobDescription"
-              value={formData.jobDescription}
+              value={formData?.jobDescription}
               onChange={handleInputChange}
               id="job-description"
               cols="30"
@@ -204,7 +209,7 @@ export default function EditApplication(){
             <textarea
               type="text"
               name="notes"
-              value={formData.notes}
+              value={formData?.notes}
               onChange={handleInputChange}
               id="notes"
               cols="30"

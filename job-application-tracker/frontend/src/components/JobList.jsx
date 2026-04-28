@@ -13,10 +13,12 @@ export default function JobList({ applications }) {
          <span>Job Posting</span>
 
        </div>
-       {applications.map((application) => (
-         <Link to={`/application/${application.id}`} key={application.id}>
+       {[...applications].sort((a, b) => 
+       a.companyName.trim().toLowerCase().localeCompare(b.companyName.trim().toLowerCase()))
+       .map((application) => (
+         
            <JobCard application={application} key={application.id} />
-         </Link>
+       
        ))}
      </div>
    );

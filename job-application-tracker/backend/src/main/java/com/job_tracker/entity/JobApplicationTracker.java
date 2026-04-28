@@ -25,7 +25,11 @@ public class JobApplicationTracker {
 
     @Email
     private String recruiterEmail;
+
+    @Column(columnDefinition = "TEXT")
     private String notes;
+
+    @Column(columnDefinition = "TEXT")
     private String jobDescription;
 
     @Positive

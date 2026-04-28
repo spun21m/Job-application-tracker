@@ -158,17 +158,20 @@ export default function ApplicationDetails() {
           <span className="details-label">Status:</span>
           <span className="details-value">{application?.status}</span>
         </div>
-        <div className="details-row">
-          <span className="details-label">Job Description:</span>
-          <span className="details-value">{application?.jobDescription}</span>
+        <div className="details-block">
+          <div className="details-block-label">Job Description:</div>
+          <div className="details-block-value">{application?.jobDescription}</div>
         </div>
-        <div className="details-row">
-          <span className="details-label">Notes:</span>
-          <span className="details-value">{application?.notes}</span>
+        <div className="details-block">
+          <div className="details-block-label">Notes:</div>
+          <div className="details-block-value">{application?.notes || "N/A"}</div>
         </div>
         <div className="details-actions">
+           <Link to="/">
+            <button className="btn-secondary">⬅ Back to Dashboard</button>
+          </Link>
           <Link to={`/edit/${id}`}>
-            <button className="btn-secondary">Edit</button>
+            <button className="btn-primary">Edit</button>
           </Link>
           <button
             className="btn-danger"

@@ -10,7 +10,6 @@ export default function Home() {
 
   useEffect(() => {
     fetchApplications();
-    console.log("Applications updated:", applications);
   }, []);
 
   async function fetchApplications() {
