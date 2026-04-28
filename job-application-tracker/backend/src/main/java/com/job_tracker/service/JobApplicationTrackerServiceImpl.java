@@ -58,6 +58,7 @@ public class JobApplicationTrackerServiceImpl implements JobApplicationTrackerSe
         existingApplication.setNotes(jobApplicationTracker.getNotes());
         existingApplication.setJobDescription(jobApplicationTracker.getJobDescription());
         existingApplication.setSalary(jobApplicationTracker.getSalary());
+        existingApplication.setStatus(jobApplicationTracker.getStatus());
         return jobApplicationTrackerRepo.save(existingApplication);
     }
 

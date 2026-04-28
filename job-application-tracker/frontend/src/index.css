@@ -205,6 +205,7 @@ text-align: center;
     color: #555;
     text-align: right;
     word-break: break-word;
+    
 }
 
 .details-value a{
@@ -223,22 +224,51 @@ text-align: center;
 }
 
 .details-block {
-  margin-top: 20px;
-  padding-top: 10px;
+    margin-top: 20px;
+    padding-top: 10px;
 }
 
 .details-block-label {
-  font-weight: 600;
-  margin-bottom: 8px;
-  color: #333;
+    font-weight: 600;
+    margin-bottom: 8px;
+    color: #333;
 }
 
 .details-block-value {
-  /* background: #f9f9f9; */
-  padding: 12px;
-  border-radius: 6px;
-  color: #555;
-  line-height: 2;
-  white-space: pre-wrap; 
+    /* background: #f9f9f9; */
+    padding: 12px;
+    border-radius: 6px;
+    color: #555;
+    line-height: 2;
+    white-space: pre-wrap; 
+    display: block;
+    overflow-wrap: anywhere;
+    word-break: break-word;
+    white-space: pre-wrap;
+}
+
+.status-badge{
+    display: inline-block;
+    padding: 6px 12px;
+    border-radius: 999px;
+    font-size: 0.85rem;
+    font-weight: 600;
+}
+
+.status-badge.applied{
+    background-color: #e0f2fe;
+    color: #0369a1;
+}
+.status-badge.interview{
+    background-color: #fef3c7;
+    color: #92400e;
+}
+.status-badge.offered{
+    background-color: #dcfce7;
+    color: #166534;
+}
+.status-badge.rejected{
+    background-color: #fee2e2;
+    color: #991b1b;
 }
 

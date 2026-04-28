@@ -152,7 +152,7 @@ export default function ApplicationDetails() {
         </div>
         <div className="details-row">
           <span className="details-label">Salary:</span>
-          <span className="details-value">{`$${application?.salary}`}</span>
+          <span className="details-value">{application?.salary ? `$${application.salary}` : "N/A"}</span>
         </div>
         <div className="details-row">
           <span className="details-label">Status:</span>
