@@ -9,6 +9,8 @@ import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
 
+import jakarta.validation.Valid;
+
 @RestController
 @RequestMapping("/api/job-applications")
 @CrossOrigin(origins = "http://localhost:5173")
@@ -23,7 +25,7 @@ public class JobApplicationTrackerCrontroller {
 
 //    CREATE
     @PostMapping
-    public ResponseEntity<JobApplicationTracker> create(@RequestBody JobApplicationTracker body){
+    public ResponseEntity<JobApplicationTracker> create(@Valid @RequestBody JobApplicationTracker body){
         JobApplicationTracker saved = service.addJobApplication(body);
         return ResponseEntity.status(HttpStatus.CREATED).body(saved);
     }
@@ -44,7 +46,7 @@ public class JobApplicationTrackerCrontroller {
 
 //    Update applications by id
     @PutMapping("/{id}")
-    public ResponseEntity<JobApplicationTracker> updateApplication(@PathVariable Long id, @RequestBody JobApplicationTracker body){
+    public ResponseEntity<JobApplicationTracker> updateApplication(@PathVariable Long id, @Valid @RequestBody JobApplicationTracker body){
         JobApplicationTracker updatedApplication = service.updateJobApplication(body, id);
         return ResponseEntity.ok(updatedApplication);
     }

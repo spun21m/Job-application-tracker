@@ -46,27 +46,17 @@ public class JobApplicationTrackerServiceImpl implements JobApplicationTrackerSe
                         "Job application with id " + id + " not found."
         ));
 
-        if( jobApplicationTracker.getCompanyName() == null || jobApplicationTracker.getCompanyName().isBlank()){
-            throw new ResponseStatusException(HttpStatus.BAD_REQUEST, "companyName is required");
-        }
 
-        if(jobApplicationTracker.getJobTitle() == null || jobApplicationTracker.getJobTitle().isBlank()){
-            throw new ResponseStatusException(HttpStatus.BAD_REQUEST, "job title is required");
-        }
-
-        if(jobApplicationTracker.getApplicationDate() == null){
-            throw new ResponseStatusException(HttpStatus.BAD_REQUEST, "application date is required");
-        }
-
-        if(jobApplicationTracker.getStatus() == null){
-            jobApplicationTracker.setStatus(JobApplicationStatus.APPLIED);
-        }
 
         existingApplication.setCompanyName(jobApplicationTracker.getCompanyName());
         existingApplication.setJobTitle(jobApplicationTracker.getJobTitle());
-        existingApplication.setJobLink(jobApplicationTracker.getJobLink());
+        existingApplication.setCompanyLink(jobApplicationTracker.getCompanyLink());
         existingApplication.setApplicationDate(jobApplicationTracker.getApplicationDate());
-        existingApplication.setStatus(jobApplicationTracker.getStatus());
+        existingApplication.setInterviewLink(jobApplicationTracker.getInterviewLink());
+        existingApplication.setRecruiterEmail(jobApplicationTracker.getRecruiterEmail());
+        existingApplication.setNotes(jobApplicationTracker.getNotes());
+        existingApplication.setJobDescription(jobApplicationTracker.getJobDescription());
+        existingApplication.setSalary(jobApplicationTracker.getSalary());
         return jobApplicationTrackerRepo.save(existingApplication);
     }
 

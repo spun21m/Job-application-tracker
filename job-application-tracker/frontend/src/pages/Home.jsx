@@ -2,6 +2,7 @@ import { useState, useEffect } from "react";
 import { Link } from "react-router-dom";
 import JobList from "../components/JobList.jsx";
 import { getAllApplications } from "../services/api.js";
+import "../styles/home.css";
 
 export default function Home() {
   const [applications, setApplications] = useState([]);
@@ -34,16 +35,30 @@ export default function Home() {
 
   return (
     <div>
-      <nav>
-        <Link to="/">Home</Link> | <Link to="/add">Add Application</Link>
-      </nav>
-      <h1>Welcome to the Job Application Tracker!</h1>
-      <p>Track your job applications and interviews in one place.</p>
-
-      <JobList applications={applications} />
-      <Link to="/add">
-        <button>Add Application</button>
-      </Link>
+      <div className="hero">
+        <nav className="hero-nav">
+          <Link to="/">Dashboard</Link>
+           <Link to="/add">+ New</Link>
+        </nav>
+      </div>
+      <div className="hero-content">
+        <h1>Job Application Tracker</h1>
+        <p>💡 Track your job applications and interviews in one place.</p>
+      </div>
+      <div className="container">
+        <h2>Your Applications</h2>
+        <p>Total applications: {applications.length}</p>
+        {applications.length === 0 ? (
+          <p>No applications found. Start by adding your first application!</p>
+        ) : (
+          <JobList applications={applications} />
+        )}
+        <div className="actions">
+          <Link to="/add">
+            <button className="btn-primary">+ Add New Application</button>
+          </Link>
+        </div>
+      </div>
     </div>
   );
 }

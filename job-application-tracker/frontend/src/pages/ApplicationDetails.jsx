@@ -59,33 +59,146 @@ export default function ApplicationDetails() {
 
   return (
     <div>
-      <nav>
-        <Link to="/">Home</Link> | <Link to="/add">Add Application</Link>
-      </nav>
-      <h1>Application Details</h1>
-      <p>Details about the selected job application will be displayed here.</p>
-      <p>Job Title: {application?.jobTitle}</p>
-      <p>Job link: {application?.jobLink}</p>
-      <p>Company: {application?.companyName}</p>
-      <p>Application Date: {application?.applicationDate}</p>
-      <p>Status: {application?.status}</p>
-      <Link to={`/edit/${id}`}>
-        <button>Edit</button>
-      </Link>
-     
-      <button onClick={() => setShowDeleteModal(true)}>Delete</button>
-      {
-        showDeleteModal && (
+      <div className="hero">
+        <nav className="hero-nav">
+          <Link to="/">Dashboard</Link>
+          <Link to="/add">+ New</Link>
+        </nav>
+      </div>
+
+      {/* <div className="container"> */}
+      {/* <div className="hero-content">
+          <h2>Application Details</h2>
+          <p className="details-subtext">
+            View and manage your selected job application details
+          </p>
+        </div> */}
+      <div className="details-card">
+        <h2>Application Details</h2>
+        <p className="details-subtext">
+          View and manage your selected job application details
+        </p>
+        <div className="details-row">
+          <span className="details-label">Job Title:</span>
+          <span className="details-value">{application?.jobTitle}</span>
+        </div>
+        <div className="details-row">
+          <span className="details-label">Company:</span>
+          <span className="details-value">{application?.companyName}</span>
+        </div>
+        <div className="details-row">
+          <span className="details-label">Company Website Link:</span>
+          <span className="details-value">
+            {application?.companyLink ? (
+              <a
+                href={application.companyLink}
+                target="_blank"
+                rel="noopener noreferrer"
+              >
+                {application?.companyLink}
+              </a>
+            ) : (
+              "N/A"
+            )}
+          </span>
+        </div>
+        <div className="details-row">
+          <span className="details-label">Job Posting Link:</span>
+          <span className="details-value">
+            {application?.jobPostingLink ? (
+              <a
+                href={application.jobPostingLink}
+                target="_blank"
+                rel="noopener noreferrer"
+              >
+                {application?.jobPostingLink}
+              </a>
+            ) : (
+              "N/A"
+            )}
+          </span>
+        </div>
+        <div className="details-row">
+          <span className="details-label">Interview Link:</span>
+          <span className="details-value">
+            {application?.interviewLink ? (
+              <a
+                href={application.interviewLink}
+                target="_blank"
+                rel="noopener noreferrer"
+              >
+                {application?.interviewLink}
+              </a>
+            ) : (
+              "N/A"
+            )}
+          </span>
+        </div>
+        <div className="details-row">
+          <span className="details-label">Recruiter Email:</span>
+          <span className="details-value">
+            {application?.recruiterEmail ? (
+              <a href={`mailto:${application.recruiterEmail}`}>
+                {application?.recruiterEmail}
+              </a>
+            ) : (
+              "N/A"
+            )}
+          </span>
+        </div>
+        <div className="details-row">
+          <span className="details-label">Application Date:</span>
+          <span className="details-value">{application?.applicationDate}</span>
+        </div>
+        <div className="details-row">
+          <span className="details-label">Salary:</span>
+          <span className="details-value">{`$${application?.salary}`}</span>
+        </div>
+        <div className="details-row">
+          <span className="details-label">Status:</span>
+          <span className="details-value">{application?.status}</span>
+        </div>
+        <div className="details-row">
+          <span className="details-label">Job Description:</span>
+          <span className="details-value">{application?.jobDescription}</span>
+        </div>
+        <div className="details-row">
+          <span className="details-label">Notes:</span>
+          <span className="details-value">{application?.notes}</span>
+        </div>
+        <div className="details-actions">
+          <Link to={`/edit/${id}`}>
+            <button className="btn-secondary">Edit</button>
+          </Link>
+          <button
+            className="btn-danger"
+            onClick={() => setShowDeleteModal(true)}
+          >
+            Delete
+          </button>
+        </div>
+
+        {showDeleteModal && (
           <div style={overlayStyle}>
             <div style={modalStyle}>
-              <h2>Confirm Deletion</h2> 
+              <h2>Confirm Deletion</h2>
               <p>Are you sure you want to delete this application?</p>
-              <button onClick={handleDelete}>Yes, Delete</button>
-              <button onClick={() => setShowDeleteModal(false)}>Cancel</button>
+              <div className="details-actions">
+                <button className="btn-danger" onClick={handleDelete}>
+                  Yes, Delete
+                </button>
+                <button
+                  className="btn-secondary"
+                  onClick={() => setShowDeleteModal(false)}
+                >
+                  Cancel
+                </button>
+              </div>
             </div>
           </div>
-        )
-      }
+        )}
+      </div>
     </div>
+    // </div>
   );
 }
