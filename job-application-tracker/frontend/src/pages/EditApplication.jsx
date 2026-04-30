@@ -85,7 +85,7 @@ export default function EditApplication(){
       <div className="form-card">
         <h2>Update Job Application</h2>
 
-        <form onSubmit={handleSubmit}>
+        <form onSubmit={handleSubmit} autoComplete="off">
           <div className="form-group">
             <label htmlFor="job-title">Job Title</label>
             <input

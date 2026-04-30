@@ -117,6 +117,11 @@ nav{
   margin-bottom: 6px;
   border-radius: 6px;
 }
+
+.job-row{
+    text-align: center;
+}
+
 .job-row span a{
     color: #7e5b5b;
 }
@@ -128,6 +133,7 @@ nav{
 .header {
   font-weight: bold;
   background: #e9ecef;
+  text-align: center;
 }
 
 
@@ -248,11 +254,13 @@ text-align: center;
 }
 
 .status-badge{
-    display: inline-block;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
     padding: 6px 12px;
     border-radius: 999px;
     font-size: 0.85rem;
-    font-weight: 600;
+    font-weight: 600;    
 }
 
 .status-badge.applied{

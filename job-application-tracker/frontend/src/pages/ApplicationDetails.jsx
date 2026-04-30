@@ -152,22 +152,34 @@ export default function ApplicationDetails() {
         </div>
         <div className="details-row">
           <span className="details-label">Salary:</span>
-          <span className="details-value">{application?.salary ? `$${application.salary}` : "N/A"}</span>
+          <span className="details-value">
+            {application?.salary ? `$${application.salary}` : "N/A"}
+          </span>
         </div>
         <div className="details-row">
           <span className="details-label">Status:</span>
-          <span className="details-value">{application?.status}</span>
+          <span
+            className={`status-badge ${application?.status?.toLowerCase().trim()}`}
+          >
+            {application?.status}
+          </span>
+          {/* <span className="details-value">{application?.status}</span> */}
         </div>
+
         <div className="details-block">
           <div className="details-block-label">Job Description:</div>
-          <div className="details-block-value">{application?.jobDescription}</div>
+          <div className="details-block-value">
+            {application?.jobDescription}
+          </div>
         </div>
         <div className="details-block">
           <div className="details-block-label">Notes:</div>
-          <div className="details-block-value">{application?.notes || "N/A"}</div>
+          <div className="details-block-value">
+            {application?.notes || "N/A"}
+          </div>
         </div>
         <div className="details-actions">
-           <Link to="/">
+          <Link to="/">
             <button className="btn-secondary">⬅ Back to Dashboard</button>
           </Link>
           <Link to={`/edit/${id}`}>

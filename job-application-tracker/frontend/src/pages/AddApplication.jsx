@@ -65,7 +65,7 @@ export default function AddApplication() {
       {/* <div className="container"> */}
       <div className="form-card">
         <h2>Add New Application</h2>
-        <form onSubmit={handleSubmit}>
+        <form onSubmit={handleSubmit} autoComplete="off">
           <div className="form-group">
             <label htmlFor="job-title">Job Title</label>
 
