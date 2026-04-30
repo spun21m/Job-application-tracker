@@ -1,71 +1,72 @@
-*{
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
+/*  Reset */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
 }
 
-body{
-    font-family: 'Poppins', sans-serif;
-    background-color: #f5f5f5;
-    color:#333;
-    line-height: 1.6;
+body {
+  font-family: 'Poppins', sans-serif;
+  background-color: #f5f5f5;
+  color: #333;
+  line-height: 1.6;
 }
 
-.container{
-    width: 80%;
-    margin: 40px auto;
-    padding: 20px;
-    background-color: #fff;
-    box-shadow: 0 0 10px rgba(0,0,0,0.1);
-    border-radius: 5px;
-}
-.btn-primary{
-    background-color: #225d9d;
-    color: white;
-    padding: 10px 20px;
-    border: none;
-    border-radius: 5px;
-    cursor: pointer;
-}   
-.btn-danger{
-    background-color: #dc3545;
-    color: white;
-    padding: 10px 20px;
-    border: none;
-    border-radius: 5px;
-    cursor: pointer;
-}
-.btn-secondary{
-    background-color: #5b84a7;
-    color: white;
-    padding: 10px 20px;
-    border: none;
-    border-radius: 5px;
-    cursor: pointer;
-}
-ul{
-    list-style: none;
+a {
+  text-decoration: none;
+  color: #333;
+  font-weight: bold;
+  margin-right: 15px;
 }
 
-li{
-    background: white;
-    padding: 12px;
-    margin-bottom: 10px;
-    border-radius: 8px;
-    box-shadow: 0 2px 4px rgba(0,0,0,0.5);
+ul {
+  list-style: none;
 }
 
-nav{
-    margin-bottom: 20px;
+/* Layout and Containers */
+.container {
+  width: 80%;
+  margin: 40px auto;
+  padding: 20px;
+  background-color: #fff;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+  border-radius: 5px;
 }
 
- a{
-    text-decoration: none;
-    color: #333;
-    font-weight: bold;
-    margin-right: 15px;
+.container h2 {
+  margin-top: 20px;
+  margin-bottom: 10px;
 }
 
+.container p {
+  margin-bottom: 10px;
+  opacity: 0.7;
+}
+
+/* Buttons */
+.btn-primary,
+.btn-danger,
+.btn-secondary {
+  color: white;
+  padding: 10px 20px;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+.btn-primary {
+  background-color: #225d9d;
+}
+
+.btn-danger {
+  background-color: #dc3545;
+}
+
+.btn-secondary {
+  background-color: #5b84a7;
+}
+
+/* Hero/Navigation */
 .hero {
   width: 100%;
   height: 300px;
@@ -73,31 +74,20 @@ nav{
   background-size: cover;
   background-position: center;
   color: white;
-  /* display: flex;
-    flex-direction: column;
-    justify-content: center;
-    position: relative; */
-        position: relative; 
+  position: relative;
 }
-
-/* .hero::after {
-  content: "";
-  position: absolute;
-} */
 
 .hero::before {
   content: "";
   position: absolute;
   inset: 0;
-    background: rgba(0, 0, 0, 0.1);
+  background: rgba(0, 0, 0, 0.1);
 }
-/* Navigation on top of hero */
+
 .hero-nav {
-  /* position: absolute;
+  position: absolute;
   top: 20px;
-  right: 20px; */
-  display: flex;
-  gap: 5px;
+  right: 20px;
 }
 
 .hero-nav a {
@@ -106,196 +96,21 @@ nav{
   font-weight: bold;
 }
 
-.header,
-.job-row {
-  display: grid;
-  grid-template-columns: 2fr 1fr 1fr 1.3fr 1fr 1fr;
-  gap: 10px;
-  padding: 10px;
-  align-items: center;
-  background: white;
-  margin-bottom: 6px;
-  border-radius: 6px;
-}
-
-.job-row{
-    text-align: center;
-}
-
-.job-row span a{
-    color: #7e5b5b;
-}
-
-.job-row span a:hover{
-    text-decoration: underline;
-}
-
-.header {
-  font-weight: bold;
-  background: #e9ecef;
+.hero-content {
+  margin: 25px;
   text-align: center;
 }
 
-
-.form-card {
-    max-width: 700px;
-    margin: 40px auto;
-    background: white;
-    padding: 20px;
-    border-radius: 5px;
-    box-shadow: 0 0 10px rgba(0,0,0,0.1);
+.hero-content h1 {
+  font-size: 32px;
+  margin-bottom: 10px;
 }
 
-.form-card h2{
-margin-bottom: 20px;
-text-align: center;
-
-}
-
-.form-group {
-    margin-bottom: 15px;
-    display: flex;
-    flex-direction: column;
-}
-
-.form-group label {
-    margin-bottom: 8px;
-    font-weight: bold;
-}
-
-.form-group input, .form-group select {
-    padding: 12px;
-    border: 1px solid #ccc;
-    border-radius: 4px;
-}
-
-.form-card .btn-primary{
-    width: 100%;
-    margin-top: 10px;
-}
-
-.details-card{
-    max-width: 700px;
-    margin: 40px auto;
-    background: white;
-    padding: 22px;
-    border-radius: 5px;
-    box-shadow: 0 0 10px rgba(0,0,0,0.1);
-}
-
-.details-card h2{
-    margin-bottom: 20px;
-    text-align: center; 
-}
-
-.details-subtext{
-    color: #666;
-    text-align: center;
-    margin-bottom: 25px;
-}
-
-.details-row{
-    display: flex;
-    justify-content: space-between;
-    gap: 20px;
-    padding: 14px 0;
-    border-bottom: 1px solid #eee;
-}
-
-.details-label{
-    font-weight: 600;
-    color: #333;
-}
-
-.details-value{
-    color: #555;
-    text-align: right;
-    word-break: break-word;
-    
-}
-
-.details-value a{
-    color: #3678be;
-    font-weight: 400;
-}
-
-.details-value a:hover{
-    text-decoration: underline;
-}
-.details-actions{
-    display: flex;
-    justify-content: center;
-    gap: 10px;
-    margin-top: 25px;
-}
-
-.details-block {
-    margin-top: 20px;
-    padding-top: 10px;
-}
-
-.details-block-label {
-    font-weight: 600;
-    margin-bottom: 8px;
-    color: #333;
-}
-
-.details-block-value {
-    /* background: #f9f9f9; */
-    padding: 12px;
-    border-radius: 6px;
-    color: #555;
-    line-height: 2;
-    white-space: pre-wrap; 
-    display: block;
-    overflow-wrap: anywhere;
-    word-break: break-word;
-    white-space: pre-wrap;
-}
-
-.status-badge{
-    display: inline-flex;
-    align-items: center;
-    justify-content: center;
-    padding: 6px 12px;
-    border-radius: 999px;
-    font-size: 0.85rem;
-    font-weight: 600;    
-}
-
-.status-badge.applied{
-    background-color: #e0f2fe;
-    color: #0369a1;
-}
-.status-badge.interview{
-    background-color: #fef3c7;
-    color: #92400e;
-}
-.status-badge.offered{
-    background-color: #dcfce7;
-    color: #166534;
-}
-.status-badge.rejected{
-    background-color: #fee2e2;
-    color: #991b1b;
-}
-
-.search-input, .status-filter{
-    padding: 8px;
-    width: 250px;
-    margin-right: 10px;
-    margin-bottom: 10px;
-    border-radius: 6px;
-    border: 1px solid #ccc;
-    color: #333;
-}
-
-.clear{
-    
-  padding: 8px 12px;
-  border: 1px solid #ccc;
-  background: #f5f5f5;
-  border-radius: 6px;
-  cursor: pointer;
-
+.hero-content p {
+  font-size: 16px;
+  background-color: #deeaeb;
+  color: #333;
+  padding: 10px 50px;
+  margin: 10px 120px;
+  border-radius: 5px;
 }

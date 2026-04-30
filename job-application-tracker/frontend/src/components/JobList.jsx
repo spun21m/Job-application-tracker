@@ -3,8 +3,8 @@ import JobCard from "../components/JobCard.jsx";
 
 export default function JobList({ applications }) {
    return (
-     <div>
-       <div className="job-row header">
+     <div className="job-list">
+       <div className="job-row job-list-header">
          <span>Job Title</span>
          <span>Company</span>
          <span>Status</span>

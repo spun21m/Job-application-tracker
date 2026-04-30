@@ -2,6 +2,7 @@ import { Link, useParams, useNavigate } from "react-router-dom";
 import { useEffect, useState } from "react";
 import { getApplicationById } from "../services/api";
 import { deleteApplication } from "../services/api";
+import "../styles/details.css";
 export default function ApplicationDetails() {
   const { id } = useParams();
   const [application, setApplication] = useState(null);
@@ -16,8 +17,6 @@ export default function ApplicationDetails() {
       console.error("Error fetching application details:", error);
     }
   };
-  console.log("Application ID from URL:", id);
-  console.log("Application details received:", application);
 
   useEffect(() => {
     getApplicationDetails();
@@ -36,25 +35,7 @@ export default function ApplicationDetails() {
       }
     
   };
-  const overlayStyle = {
-    position: "fixed",
-    top: 0,
-    left: 0,
-    width: "100%",
-    height: "100%",
-    backgroundColor: "rgba(0, 0, 0, 0.5)",
-    display: "flex",
-    justifyContent: "center",
-    alignItems: "center",
-  };
 
-  const modalStyle = {
-    backgroundColor: "white",
-    padding: "20px",
-    borderRadius: "8px",
-    width: "300px",
-    textAlign: "center",
-  };
 
 
   return (
@@ -158,12 +139,14 @@ export default function ApplicationDetails() {
         </div>
         <div className="details-row">
           <span className="details-label">Status:</span>
-          <span
-            className={`status-badge ${application?.status?.toLowerCase().trim()}`}
-          >
-            {application?.status}
+          <span className="details-value">
+
+            <span
+              className={`status-badge ${application?.status?.toLowerCase().trim()}`}
+            >
+              {application?.status}
+            </span>
           </span>
-          {/* <span className="details-value">{application?.status}</span> */}
         </div>
 
         <div className="details-block">
@@ -194,8 +177,8 @@ export default function ApplicationDetails() {
         </div>
 
         {showDeleteModal && (
-          <div style={overlayStyle}>
-            <div style={modalStyle}>
+          <div className="overlayStyle">
+            <div className="modalStyle">
               <h2>Confirm Deletion</h2>
               <p>Are you sure you want to delete this application?</p>
               <div className="details-actions">

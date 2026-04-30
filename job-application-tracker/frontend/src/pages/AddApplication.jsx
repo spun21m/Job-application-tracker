@@ -1,6 +1,8 @@
 import { useState } from "react";
 import { Link, useNavigate } from "react-router-dom";
 import { addApplication } from "../services/api.js";
+import "../styles/form.css";
+
 export default function AddApplication() {
   const [formData, setFormData] = useState({
     jobTitle: "",
@@ -28,11 +30,9 @@ export default function AddApplication() {
 
   const handleSubmit = async (e) => {
     e.preventDefault();
-    console.log("Submitting formData:", formData);
 
     try {
       const response = await addApplication(formData);
-      console.log("Application added successfully:", response.data);
       setFormData({
         jobTitle: "",
         companyName: "",
@@ -49,7 +49,7 @@ export default function AddApplication() {
       navigate("/");
     } catch (error) {
       console.error("Error adding application:", error);
-      console.log("Backend response:", error.response?.data);
+     
     }
   };
 
@@ -62,7 +62,6 @@ export default function AddApplication() {
         </nav>
       </div>
 
-      {/* <div className="container"> */}
       <div className="form-card">
         <h2>Add New Application</h2>
         <form onSubmit={handleSubmit} autoComplete="off">
@@ -79,13 +78,13 @@ export default function AddApplication() {
             />
           </div>
           <div className="form-group">
-            <label htmlFor="company">Company</label>
+            <label htmlFor="company-name">Company</label>
             <input
               type="text"
               name="companyName"
               value={formData.companyName}
               onChange={handleInputChange}
-              id="companyName"
+              id="company-name"
               required
             />
           </div>

@@ -1,78 +1,58 @@
-import { Link,useParams, useNavigate } from "react-router-dom";
+import { Link, useParams, useNavigate } from "react-router-dom";
 import { useEffect, useState } from "react";
 import { getApplicationById, updateApplication } from "../services/api";
-export default function EditApplication(){
-    const [application, setApplication] = useState(null);
-    const [formData, setFormData] = useState(null)
-    const { id } = useParams();
-    const navigate = useNavigate();
-    console.log("EditApplication component rendered with ID:", id);
+import "../styles/form.css";
+export default function EditApplication() {
+  const [formData, setFormData] = useState(null);
+  const { id } = useParams();
+  const navigate = useNavigate();
 
-      const getApplicationDetails = async () => {
-        try {
-          const response = await getApplicationById(id);
-          const data = response.data;
-          setApplication(data);
-          setFormData({
-            jobTitle: data.jobTitle || "",
-            companyName: data.companyName || "",
-            companyLink: data.companyLink || "",
-            jobPostingLink: data.jobPostingLink || "",
-            interviewLink: data.interviewLink || "",
-            recruiterEmail: data.recruiterEmail || "",
-            notes: data.notes || "",
-            jobDescription: data.jobDescription || "",
-            salary: data.salary || "", 
-            applicationDate: data.applicationDate || "",
-            status: data.status || ""
-          });
-        } catch (error) {
-          console.error("Error fetching application details:", error);
-        }
-      };
-      console.log("Application ID from URL:", id);
-      console.log("Application details received:", application);
-    
-      useEffect(() => {
-        getApplicationDetails();
-      }, [id]);
- 
- 
+  const getApplicationDetails = async () => {
+    try {
+      const response = await getApplicationById(id);
+      const data = response.data;
+      setFormData({
+        jobTitle: data.jobTitle || "",
+        companyName: data.companyName || "",
+        companyLink: data.companyLink || "",
+        jobPostingLink: data.jobPostingLink || "",
+        interviewLink: data.interviewLink || "",
+        recruiterEmail: data.recruiterEmail || "",
+        notes: data.notes || "",
+        jobDescription: data.jobDescription || "",
+        salary: data.salary || "",
+        applicationDate: data.applicationDate || "",
+        status: data.status || "",
+      });
+    } catch (error) {
+      console.error("Error fetching application details:", error);
+    }
+  };
 
-  const handleInputChange = (e) =>{
+  useEffect(() => {
+    getApplicationDetails();
+  }, [id]);
+
+  const handleInputChange = (e) => {
     const { name, value } = e.target;
     setFormData((prevData) => ({
       ...prevData,
-      [name]: value
-    }))
-  }
+      [name]: value,
+    }));
+  };
 
   const handleSubmit = async (e) => {
-    e.preventDefault();   
+    e.preventDefault();
 
     try {
       const response = await updateApplication(id, formData);
-      console.log("Application updated successfully:", response.data);
-      setFormData({
-        jobTitle: "",
-        companyName: "",  
-        companyLink: "",
-        jobPostingLink: "",
-        interviewLink: "",
-        recruiterEmail: "",
-        salary: "",
-        notes: "",
-        applicationDate: "",  
-        status: ""
-      });
+
       navigate("/");
     } catch (error) {
       console.error("Error updating application:", error);
-      console.log("Backend response:", error.response?.data);
     }
-  }
- 
-  
+  };
+
   return (
     <div>
       <div className="hero">
@@ -81,7 +61,6 @@ export default function EditApplication(){
         </nav>
       </div>
 
-      {/* <div className="container"> */}
       <div className="form-card">
         <h2>Update Job Application</h2>
 
@@ -160,12 +139,7 @@ export default function EditApplication(){
               required
             />
           </div>
-          {/* <label htmlFor="notes">Details:</label>
-        <textarea name="details" value={formData.details} onChange={handleInputChange} id="details" rows="4" cols="50"></textarea>
-        <hr />
-        <label htmlFor="notes">Notes:</label>
-        <textarea name="notes" value={formData.notes} onChange={handleInputChange} id="notes" rows="2" cols="50"></textarea>
-        <hr /> */}
+
           <div className="form-group">
             <label htmlFor="status">Status:</label>
             <select
@@ -173,6 +147,7 @@ export default function EditApplication(){
               value={formData?.status}
               onChange={handleInputChange}
               id="status"
+              required
             >
               <option value="">Select Status</option>
               <option value="APPLIED">APPLIED</option>
@@ -224,6 +199,5 @@ export default function EditApplication(){
         </form>
       </div>
     </div>
-    // </div>
   );
 }
