@@ -13,7 +13,7 @@ import jakarta.validation.Valid;
 
 @RestController
 @RequestMapping("/api/job-applications")
-@CrossOrigin(origins = "http://localhost:5173")
+@CrossOrigin(origins = "http://localhost:5173", "https://job-application-tracker-lovat-delta.vercel.app")
 public class JobApplicationTrackerCrontroller {
 
 
