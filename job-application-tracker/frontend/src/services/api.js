@@ -1,6 +1,6 @@
 import axios from 'axios'
 
-const API_BASE_URL = "http://localhost:8080/api/job-applications";
+const API_BASE_URL = "https://job-application-tracker-production-f049.up.railway.app/api/job-applications";
 
 export const getAllApplications = () => {
     
