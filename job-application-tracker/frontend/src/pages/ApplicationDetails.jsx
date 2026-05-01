@@ -152,7 +152,7 @@ export default function ApplicationDetails() {
         <div className="details-block">
           <div className="details-block-label">Job Description:</div>
           <div className="details-block-value">
-            {application?.jobDescription}
+            {application?.jobDescription || "N/A"}
           </div>
         </div>
         <div className="details-block">
