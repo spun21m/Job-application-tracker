@@ -20,6 +20,7 @@ export default function Home() {
     return matchesSearch && matchesStatus;
   });
 
+ 
   useEffect(() => {
     fetchApplications();
   }, []);
@@ -41,16 +42,8 @@ export default function Home() {
 
   return (
     <div>
-      <div className="hero">
-        <nav className="hero-nav">
-          <Link to="/">Dashboard</Link>
-          <Link to="/add">+ New</Link>
-        </nav>
-      </div>
-      <div className="hero-content">
-        <h1>Job Application Tracker</h1>
-        <p>💡 Track your job applications and interviews in one place.</p>
-      </div>
+      
+      
       <div className="container">
         <h2>Your Applications</h2>
         {/* <p>Total applications: {applications.length}</p> */}
