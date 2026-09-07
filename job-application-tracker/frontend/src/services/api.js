@@ -1,11 +1,12 @@
 import axios from "axios";
 
-// const API_BASE_URL = "https://job-application-tracker-production-f049.up.railway.app/api/job-applications";
-// const API_AUTH_URL =
-//   "https://job-application-tracker-production-f049.up.railway.app/api/auth";
+const API_URL =
+  import.meta.env.VITE_API_URL ||
+  "http://localhost:8080";
 
-const API_BASE_URL = "http://localhost:8080/api/job-applications";
-const API_AUTH_URL = "http://localhost:8080/api/auth";
+const API_BASE_URL = `${API_URL}/api/job-applications`;
+const API_AUTH_URL = `${API_URL}/api/auth`;
+
 
 export const getAllApplications = (userId) =>
   axios.get(`${API_BASE_URL}?userId=${userId}`);
