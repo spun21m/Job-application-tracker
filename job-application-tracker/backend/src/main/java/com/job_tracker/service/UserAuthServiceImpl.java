@@ -9,7 +9,7 @@ import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Service;
 
 @Service
-public class UserAuthServiceImpl implements UserAuthService{
+public class UserAuthServiceImpl implements UserAuthService {
 
 
     private final UserRepo userRepo;
@@ -22,7 +22,7 @@ public class UserAuthServiceImpl implements UserAuthService{
 
     @Override
     public AuthResponse signup(SignUp request) {
-        if(userRepo.existsByEmail(request.getEmail())){
+        if (userRepo.existsByEmail(request.getEmail())) {
             throw new RuntimeException("Email exists already!");
         }
 
@@ -43,7 +43,7 @@ public class UserAuthServiceImpl implements UserAuthService{
                 request.getPassword(),
                 user.getPassword()
         );
-        if(!passwordMatches){
+        if (!passwordMatches) {
             throw new RuntimeException("Invalid email or password");
         }
 

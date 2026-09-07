@@ -3,6 +3,7 @@ package com.job_tracker.entity;
 import jakarta.persistence.*;
 
 import java.time.LocalDate;
+
 import jakarta.validation.constraints.NotBlank;
 import jakarta.validation.constraints.NotNull;
 import jakarta.validation.constraints.Email;
@@ -48,7 +49,6 @@ public class JobApplicationTracker {
     @NotNull
     @Enumerated(EnumType.STRING)
     private JobApplicationStatus status;
-
 
 
 }

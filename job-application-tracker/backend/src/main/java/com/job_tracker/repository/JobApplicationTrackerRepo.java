@@ -3,6 +3,8 @@ package com.job_tracker.repository;
 import com.job_tracker.entity.JobApplicationTracker;
 import org.springframework.data.jpa.repository.JpaRepository;
 
-public interface JobApplicationTrackerRepo extends JpaRepository<JobApplicationTracker, Long> {
+import java.util.List;
 
+public interface JobApplicationTrackerRepo extends JpaRepository<JobApplicationTracker, Long> {
+    List<JobApplicationTracker> findByUserId(Long userId);
 }

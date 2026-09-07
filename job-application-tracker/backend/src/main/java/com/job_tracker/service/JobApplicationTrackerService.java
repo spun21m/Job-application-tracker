@@ -6,10 +6,15 @@ import java.util.List;
 
 public interface JobApplicationTrackerService {
     JobApplicationTracker addJobApplication(JobApplicationTracker jobApplicationTracker);
+
     List<JobApplicationTracker> viewAllJobApplications();
+
+    List<JobApplicationTracker> viewJobApplicationsByUser(Long userId);
+
     JobApplicationTracker viewJobApplication(Long id);
 
     JobApplicationTracker updateJobApplication(JobApplicationTracker jobApplicationTracker, Long id);
+
     void deleteJobApplication(Long id);
 
 }

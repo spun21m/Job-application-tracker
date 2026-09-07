@@ -26,37 +26,41 @@ public class JobApplicationTrackerCrontroller {
         this.service = service;
     }
 
-//    CREATE
+    //    CREATE
     @PostMapping
-    public ResponseEntity<JobApplicationTracker> create(@Valid @RequestBody JobApplicationTracker body){
+    public ResponseEntity<JobApplicationTracker> create(@Valid @RequestBody JobApplicationTracker body) {
         JobApplicationTracker saved = service.addJobApplication(body);
         return ResponseEntity.status(HttpStatus.CREATED).body(saved);
     }
 
-//    View all job applications
-    @GetMapping()
-    public ResponseEntity<List<JobApplicationTracker>> getAll(){
-        List<JobApplicationTracker> list = service.viewAllJobApplications();
+    //    View all job applications
+    @GetMapping
+    public ResponseEntity<List<JobApplicationTracker>> getAll(
+            @RequestParam Long userId
+    ) {
+        List<JobApplicationTracker> list =
+                service.viewJobApplicationsByUser(userId);
+
         return ResponseEntity.ok(list);
     }
 
-//    View one application by id
+    //    View one application by id
     @GetMapping("/{id}")
-    public ResponseEntity<JobApplicationTracker> getById(@PathVariable Long id){
+    public ResponseEntity<JobApplicationTracker> getById(@PathVariable Long id) {
         JobApplicationTracker jobApplication = service.viewJobApplication(id);
         return ResponseEntity.ok(jobApplication);
     }
 
-//    Update applications by id
+    //    Update applications by id
     @PutMapping("/{id}")
-    public ResponseEntity<JobApplicationTracker> updateApplication(@PathVariable Long id, @Valid @RequestBody JobApplicationTracker body){
+    public ResponseEntity<JobApplicationTracker> updateApplication(@PathVariable Long id, @Valid @RequestBody JobApplicationTracker body) {
         JobApplicationTracker updatedApplication = service.updateJobApplication(body, id);
         return ResponseEntity.ok(updatedApplication);
     }
 
-//    Delte application by id
+    //    Delte application by id
     @DeleteMapping("/{id}")
-    public ResponseEntity<Void> deleteApplication(@PathVariable Long id){
+    public ResponseEntity<Void> deleteApplication(@PathVariable Long id) {
         service.deleteJobApplication(id);
         return ResponseEntity.noContent().build();
     }

@@ -24,14 +24,14 @@ public class UserAuthController {
     }
 
     @PostMapping("/signup")
-    public AuthResponse signup(@RequestBody SignUp request){
+    public AuthResponse signup(@RequestBody SignUp request) {
 
         return userAuthService.signup(request);
 
     }
 
     @PostMapping("/login")
-    public AuthResponse login(@RequestBody Login request){
+    public AuthResponse login(@RequestBody Login request) {
         return userAuthService.login(request);
 
     }

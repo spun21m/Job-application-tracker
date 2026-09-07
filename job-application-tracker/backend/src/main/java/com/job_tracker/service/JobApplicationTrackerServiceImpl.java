@@ -11,7 +11,7 @@ import org.springframework.web.server.ResponseStatusException;
 import java.util.List;
 
 @Service
-public class JobApplicationTrackerServiceImpl implements JobApplicationTrackerService{
+public class JobApplicationTrackerServiceImpl implements JobApplicationTrackerService {
 
     @Autowired
     private JobApplicationTrackerRepo jobApplicationTrackerRepo;
@@ -24,28 +24,33 @@ public class JobApplicationTrackerServiceImpl implements JobApplicationTrackerSe
 
     @Override
     public List<JobApplicationTracker> viewAllJobApplications() {
-        return  jobApplicationTrackerRepo.findAll();
+        return jobApplicationTrackerRepo.findAll();
+    }
+
+    @Override
+    public List<JobApplicationTracker> viewJobApplicationsByUser(Long userId) {
+        return jobApplicationTrackerRepo.findByUserId(userId);
     }
 
     @Override
     public JobApplicationTracker viewJobApplication(Long id) {
 
         return jobApplicationTrackerRepo.findById(id).orElseThrow(
-                ()->new ResponseStatusException(
+                () -> new ResponseStatusException(
                         HttpStatus.NOT_FOUND,
                         "Job application not found with id " + id
-        ));
+                ));
 
     }
 
+
     @Override
     public JobApplicationTracker updateJobApplication(JobApplicationTracker jobApplicationTracker, Long id) {
-        JobApplicationTracker existingApplication =  jobApplicationTrackerRepo.findById(id).orElseThrow(
+        JobApplicationTracker existingApplication = jobApplicationTrackerRepo.findById(id).orElseThrow(
                 () -> new ResponseStatusException(
                         HttpStatus.NOT_FOUND,
                         "Job application with id " + id + " not found."
-        ));
-
+                ));
 
 
         existingApplication.setCompanyName(jobApplicationTracker.getCompanyName());
