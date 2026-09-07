@@ -20,14 +20,15 @@ export default function Home() {
     return matchesSearch && matchesStatus;
   });
 
- 
   useEffect(() => {
     fetchApplications();
   }, []);
 
   async function fetchApplications() {
     try {
-      const response = await getAllApplications();
+      // const response = await getAllApplications();
+      const user = JSON.parse(localStorage.getItem("user"));
+      const response = await getAllApplications(user.id);
       setApplications(response.data);
       setLoading(false);
     } catch (error) {
@@ -41,53 +42,78 @@ export default function Home() {
   }
 
   return (
-    <div>
-      
-      
-      <div className="container">
-        <h2>Your Applications</h2>
-        {/* <p>Total applications: {applications.length}</p> */}
-        <p>
-          Showing {filteredApplication.length} of {applications.length}{" "}
-          applications
-        </p>
-        <div className="filters">
-          <input
-            type="text"
-            placeholder="Search by job title or company..."
-            value={searchApplication}
-            onChange={(e) => setSearchApplication(e.target.value)}
-            className="search-input"
-          />
-          {searchApplication && (
-            <button onClick={() => setSearchApplication("")} className="clear-btn">
-              Clear
-            </button>
-          )}
+    <div className="dashboard-page">
+      <div className="dashboard-header">
+        <h1>Dashboard</h1>
+        <p>Here's an overview of your job applications.</p>
+      </div>
+
+      <div className="stats-grid">
+        <div className="stat-card">
+          <div className="stat-icon total-icon">▣</div>
+          <div>
+            <p>Total Applications</p>
+            <h2>{applications.length}</h2>
+          </div>
         </div>
-        <select
-          value={statusFilter}
-          onChange={(e) => setStatusFilter(e.target.value)}
-          className="status-filter"
-        >
-          <option value="ALL">All</option>
-          <option value="APPLIED">Applied</option>
-          <option value="INTERVIEW">Interview</option>
-          <option value="OFFERED">Offered</option>
-          <option value="REJECTED">Rejected</option>
-        </select>
-        {applications.length === 0 ? (
-          <p>No applications found. Start by adding your first application!</p>
-        ) : filteredApplication.length === 0 ? (
-          <p>No applications match the current filter.</p>
-        ) : (
-          <JobList applications={filteredApplication} />
-        )}
-        <div className="home-actions">
-          <Link to="/add">
-            <button className="btn-primary">+ Add New Application</button>
+
+        <div className="stat-card">
+          <div className="stat-icon applied-icon">✓</div>
+          <div>
+            <p>Applied</p>
+            <h2>
+              {applications.filter((app) => app.status === "APPLIED").length}
+            </h2>
+          </div>
+        </div>
+
+        <div className="stat-card">
+          <div className="stat-icon interview-icon">◷</div>
+          <div>
+            <p>Interview</p>
+            <h2>
+              {applications.filter((app) => app.status === "INTERVIEW").length}
+            </h2>
+          </div>
+        </div>
+
+        <div className="stat-card">
+          <div className="stat-icon offered-icon">★</div>
+          <div>
+            <p>Offered</p>
+            <h2>
+              {applications.filter((app) => app.status === "OFFERED").length}
+            </h2>
+          </div>
+        </div>
+
+        <div className="stat-card">
+          <div className="stat-icon rejected-icon">×</div>
+          <div>
+            <p>Rejected</p>
+            <h2>
+              {applications.filter((app) => app.status === "REJECTED").length}
+            </h2>
+          </div>
+        </div>
+      </div>
+
+      <div className="recent-section">
+        <div className="recent-header">
+          <h2>Recent Applications</h2>
+          <Link to="/add" className="recent-add-btn">
+            + Add Application
           </Link>
         </div>
+
+        <JobList
+          applications={[...applications]
+            .sort(
+              (a, b) =>
+                new Date(b.applicationDate) - new Date(a.applicationDate),
+            )
+            .slice(0, 5)}
+        />
       </div>
     </div>
   );

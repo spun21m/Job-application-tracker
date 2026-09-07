@@ -58,71 +58,78 @@ export default function Signup() {
   };
 
   return (
-    <>
-      <h2>Job Application Tracker</h2>
-      <p>Track your job application easily</p>
-
-      <div className="login-card">
-        <h2>Create Your Account ✨</h2>
-        <p>Let's get you started</p>
-        <form action="" onSubmit={handleSubmit}>
-          <div className="form-group">
-            <label htmlFor="name">Full Name</label>
-            <input
-              type="text"
-              id="name"
-              name="name"
-              onChange={handleInputChange}
-              placeholder="Enter your full name"
-              required
-            />
-          </div>
-          <div className="form-group">
-            <label htmlFor="email">Email</label>
-            <input
-              type="email"
-              id="email"
-              name="email"
-              onChange={handleInputChange}
-              placeholder="Enter your email"
-              required
-            />
-          </div>
-          <div className="form-group">
-            <label htmlFor="password">Password</label>
-            <input
-              type="password"
-              id="password"
-              name="password"
-              onChange={handleInputChange}
-              placeholder="Create your password"
-              required
-            />
-          </div>
-          <div className="form-group">
-            <label htmlFor="confirmPassword">Confirm Password</label>
-            <input
-              type="password"
-              id="confirmPassword"
-              name="confirmPassword"
-              onChange={handleInputChange}
-              placeholder="Confirm your password"
-              required
-            />
-          </div>
-
-          {error && (
-            <p className="error-message" style={{ color: "red" }}>
-              {error}
-            </p>
-          )}
-          <button type="submit">Create Account</button>
-
-          <h3>
-            Already have an account? <Link to="/">Login</Link>
-          </h3>
-        </form>
+    <div className="login-page">
+      <div className="login-left">
+        <h2>
+          💼 Job<span>Tracker</span>
+        </h2>
+        <p>Track your job applications easily</p>
       </div>
-    </>
+
+      <div className="login-right">
+        <div className="login-card">
+          <h2>Create Your Account ✨</h2>
+          <p>Let's get you started</p>
+
+          <form onSubmit={handleSubmit}>
+            <div className="form-group">
+              <label htmlFor="name">Full Name</label>
+              <input
+                type="text"
+                id="name"
+                name="name"
+                onChange={handleInputChange}
+                placeholder="Enter your full name"
+                required
+              />
+            </div>
+
+            <div className="form-group">
+              <label htmlFor="email">Email</label>
+              <input
+                type="email"
+                id="email"
+                name="email"
+                onChange={handleInputChange}
+                placeholder="Enter your email"
+                required
+              />
+            </div>
+
+            <div className="form-group">
+              <label htmlFor="password">Password</label>
+              <input
+                type="password"
+                id="password"
+                name="password"
+                onChange={handleInputChange}
+                placeholder="Create your password"
+                required
+              />
+            </div>
+
+            <div className="form-group">
+              <label htmlFor="confirmPassword">Confirm Password</label>
+              <input
+                type="password"
+                id="confirmPassword"
+                name="confirmPassword"
+                onChange={handleInputChange}
+                placeholder="Confirm your password"
+                required
+              />
+            </div>
+
+            {error && <p className="error-message">{error}</p>}
+
+            <button type="submit">Create Account</button>
+
+            <h3>
+              Already have an account? <Link to="/">Log in</Link>
+            </h3>
+          </form>
+        </div>
+      </div>
+    </div>
   );
 }
