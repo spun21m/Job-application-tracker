@@ -44,13 +44,13 @@ export default function Signup() {
     }
 
     try {
-      console.log("Form submitted:", formData);
+     
       const response = await registerUser({
         name: formData.name,
         email: formData.email,
         password: formData.password,
       });
-      console.log("Signup response:", response);
+      
       navigate("/");
     } catch (error) {
       console.error("Error submitting form:", error);

@@ -21,7 +21,7 @@ export default function Login() {
     e.preventDefault();
     try {
       const response = await loginUser(formData);
-      console.log(response);
+      
       localStorage.setItem("user", JSON.stringify(response.data));
 
       navigate("/home");
