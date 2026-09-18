@@ -10,6 +10,10 @@ import org.springframework.web.bind.annotation.*;
 
 @RestController
 @RequestMapping("/api/auth")
+@CrossOrigin(origins = {
+        "http://localhost:5173",
+        "https://job-application-tracker-lovat-delta.vercel.app"
+})
 public class UserAuthController {
 
     private final UserAuthService userAuthService;
